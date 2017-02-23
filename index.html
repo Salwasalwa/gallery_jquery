@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Galerie Images</title>
+    <link rel="stylesheet" href="./css/style.css">
+  </head>
+  <body>
+      <section>
+        <ul id="galerie">
+
+        </ul>
+      </section>
+      <div>
+
+          <button type="button" name="button" onclick="precedent()">Precedent</button>
+          <button type="button" name="button" id="suivant" onclick="suivant()">Suivant</button>
+      </div>
+
+  </body>
+  <script type="text/javascript">
+
+        var count = 0;
+      var galerieElement = document.getElementById("galerie")
+
+      var images = ["image1.jpeg",
+                    "image2.jpeg",
+                    "image3.jpeg",
+                    "image4.jpeg",
+                    ];
+
+        for (var i=count; i < images.length; i++){
+            var itemElement = document.createElement("li");
+            galerieElement.appendChild(itemElement )
+            var imageElement = document.createElement("img");
+            itemElement.appendChild(imageElement);
+
+            imageElement.src = images[i];
+
+            if(i==count){
+                imageElement.className = "montrer"
+            }
+
+            else {
+                imageElement.className = "cache"
+
+            }
+
+        }
+
+
+        function suivant() {
+            count++;
+            var imageElements = document.getElementsByTagName("img");
+
+            for (var i=0; i<imageElements.length; i++){
+
+                if (i == count){
+
+                    imageElements[i].className = "montrer"
+                }
+                else {
+                    imageElements[i].className = "cache"
+
+               }
+
+            }
+        };
+        function precedent() {
+            count--;
+            var imageElements = document.getElementsByTagName("img");
+
+            for (var i=0; i<imageElements.length; i++){
+                if (i == count){
+                    imageElements[i].className = "montrer"
+
+                }
+                else {
+                    imageElements[i].className = "cache"
+                 }
+           }
+        };
+
+  </script>
+</html>

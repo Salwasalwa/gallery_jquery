@@ -1,0 +1,33 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+section {
+    width: 50vw;
+    height: 50vh;
+    margin: auto;
+    border: 1px solid black;
+    margin-top: 1em;
+}
+div {
+    width: 50vw;
+    height: 50vh;
+    margin: auto;
+    padding: 1em;
+}
+
+img {
+    width: 50vw;
+    height: 50vh;
+}
+ li{
+     list-style-type: none;
+     float: right;
+ }
+.cache {
+    display: none;
+}
+.montrer {
+    display: block;
+}
