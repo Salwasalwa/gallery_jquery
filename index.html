@@ -1,85 +1,41 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <title>Galerie Images</title>
     <link rel="stylesheet" href="./css/style.css">
-  </head>
-  <body>
-      <section>
-        <ul id="galerie">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
 
-        </ul>
-      </section>
-      <div>
+<body>
+    <div id="slider">
+        <div><img src="./image1.jpeg" /></div>
+        <div><img src="./image2.jpeg" /></div>
+        <div><img src="./image3.jpeg" /></div>
+        <div><img src="./image4.jpeg" /></div>
+        <div><img src="./image4.jpeg" /></div>
+    </div>
+    <!-- <div>
 
-          <button type="button" name="button" onclick="precedent()">Precedent</button>
-          <button type="button" name="button" id="suivant" onclick="suivant()">Suivant</button>
-      </div>
+        <button type="button" name="button" onclick="precedent()">Precedent</button>
+        <button type="button" name="button" id="suivant" onclick="suivant()">Suivant</button>
+    </div> -->
 
-  </body>
-  <script type="text/javascript">
-
-        var count = 0;
-      var galerieElement = document.getElementById("galerie")
-
-      var images = ["image1.jpeg",
-                    "image2.jpeg",
-                    "image3.jpeg",
-                    "image4.jpeg",
-                    ];
-
-        for (var i=count; i < images.length; i++){
-            var itemElement = document.createElement("li");
-            galerieElement.appendChild(itemElement )
-            var imageElement = document.createElement("img");
-            itemElement.appendChild(imageElement);
-
-            imageElement.src = images[i];
-
-            if(i==count){
-                imageElement.className = "montrer"
-            }
-
-            else {
-                imageElement.className = "cache"
-
-            }
-
-        }
-
-
-        function suivant() {
-            count++;
-            var imageElements = document.getElementsByTagName("img");
-
-            for (var i=0; i<imageElements.length; i++){
-
-                if (i == count){
-
-                    imageElements[i].className = "montrer"
-                }
-                else {
-                    imageElements[i].className = "cache"
-
-               }
-
-            }
-        };
-        function precedent() {
-            count--;
-            var imageElements = document.getElementsByTagName("img");
-
-            for (var i=0; i<imageElements.length; i++){
-                if (i == count){
-                    imageElements[i].className = "montrer"
-
-                }
-                else {
-                    imageElements[i].className = "cache"
-                 }
-           }
-        };
-
-  </script>
+</body>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("body").css({
+            background: 'black'
+        });
+        $(function() {
+            $('#slider div:gt(0)').hide();
+            setInterval(function() {
+                $('#slider div:first-child').fadeOut(0)
+                    .next('div').fadeIn(1000)
+                    .end().appendTo('#slider');
+            }, 4000);
+        });
+    });
+</script>
 </html>
